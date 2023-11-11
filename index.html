@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Padoca da Vila</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <h1>Gerenciador de produtos</h1>
+    <button id="new-product" class="display-flex add-product">Adicionar Produto</button>
+
+    <form id="form-insert" class="display-none">
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" id="nome"/>
+
+      <label for="preco">Preço</label>
+      <input type="text" name="preco" id="preco"/>
+
+      <label for="quantidade">Quantidade</label>
+      <input type="number" name="quantidade" id="quantidade"/>
+
+      <button type="button" id="cadastrar" class="add-product">Cadastrar</button>
+    </form>
+
+    <h2>Listagem de produtos</h2>
+    <section id="lista-produtos">
+      <table id="table-produtos">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+          </tr>
+        </thead>
+        
+        <tbody id="tbody-produtos">
+        </tbody>
+      </table>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

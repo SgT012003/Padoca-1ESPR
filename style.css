@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Inter;
+}
+
+input {
+  border-radius: 7px;
+  border: 0;
+  background-color: #000000;
+  color: #fff;
+  text-align: center;
+}
+
+body{
+  background:#FDF5E0;
+}
+
+h1 {
+  color: #E08F55;
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  display: flex;
+  justify-content: left;
+  margin-top: 2em;
+  margin-left: 10%;
+  color: #E0A755;
+}
+
+th {
+  display: flex;
+  justify-content: space-between;
+}
+tr:nth-child(-n+3) {
+  color: #E0B855;
+  justify-content: space-between;
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 10%;
+  text-align: center;
+}
+
+thead {
+  width: 90%;
+}
+thead>* {
+  display: flex;
+  padding: 2rem 0 0.3rem 0;
+  min-width: fit-content;
+  border-bottom: solid 1px black;
+}
+
+tbody {
+  width: 90%;
+}
+tbody> * {
+  display: flex;
+  padding: 0.3rem 0 0.3rem 0;
+  width: 100%;
+  align-items: center;
+}
+
+li {
+  text-transform: capitalize;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 60%;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 0.5rem 3rem;
+  cursor: pointer;
+  margin: 0.3rem
+}
+
+#new-product {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 30%;
+  align-items: center;
+}
+
+.add-product {
+  color: #ffffff;
+  border: 1.5px solid #56B280;
+  background-color: #56B280;
+  transition: 450ms ease-in-out;
+}
+
+.add-product:hover{
+  color: #56B280;
+  background-color: #ffffff;
+}
+
+.edit-product {
+  color: #ffffff;
+  border: 1.5px solid #E0C744;
+  background-color: #E0C744;
+  transition: 450ms ease-in-out;
+}
+
+.edit-product:hover {
+  color: #E0C744;
+  background-color: #ffffff;
+}
+
+.delete-product {
+  color: #ffffff;
+  border: 1.5px solid #E1493D;
+  background-color: #E1493D;
+  transition: 450ms ease-in-out;
+}
+
+.delete-product:hover {
+  color: #E1493D;
+  background-color: #ffffff;
+}
+
+
+.display-none {
+  display: none;
+}
+
+.display-flex {
+  display: flex;
+  flex-direction: column;
+}
