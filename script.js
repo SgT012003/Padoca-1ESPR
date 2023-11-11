@@ -1,3 +1,4 @@
+// declarar as variaveis globais
 const products = []
 const elements = []
 var element;
@@ -5,6 +6,7 @@ var displaystatus = false;
 var editing = -1;
 var IPC = -1;
 
+// classe do produto.
 class productClass {
     constructor(name, price, quantity) {
         this.IPC = ++IPC;
@@ -14,6 +16,7 @@ class productClass {
     }
 }
 
+// sepração dos acessos.
 elements.push(
     {
         name: 'form',
@@ -45,12 +48,14 @@ elements.push(
     }
 )
 
+// criação dos Handlers e Listeners
 element = elements.find(x => x.name === 'form')
 element.doc.addEventListener("click", createVisibility)
 
 element = elements.find(x => x.name === 'add')
 element.doc.addEventListener("click", createOrEdit)
 
+// função regex de text e numeros para validação de entrada
 function regexString(string) {
     if (`${string}`.length > 0 && string != '' && string != ' ') { return true }
     return false
@@ -59,6 +64,8 @@ function regexNumber(value) {
     if(!isNaN(parseFloat(value)) && value > 0) { return true }
     return false
 }
+
+// metodo de adição de produto ao array <- chamodo pelo methodo createVisibily().
 function createProduct() {
     let name = document.getElementById('nome').value;
     let price = document.getElementById('preco').value;
@@ -79,6 +86,7 @@ function createProduct() {
     toggleVisibility()
     displayProducts()
 }
+// metodo de edição de um produto ao array <- chamodo pelo methodo editVisibily().
 function EditProduct() {
 
     let name = document.getElementById('nome').value;
@@ -103,6 +111,8 @@ function EditProduct() {
     toggleVisibility()
     displayProducts()
 }
+
+// metodo para deleção de algum valor no array || IPC é internal product code.
 function deleteProduct(IPC) {
     for (let i = 0; i < products.length; i++) {
         if (products[i].IPC === IPC) {
@@ -113,11 +123,15 @@ function deleteProduct(IPC) {
     if(displaystatus) {toggleVisibility()}
     displayProducts()
 }
+
+// validador Teste intermediario para definir se o botão esta ativado como criar ou modificar
 function createOrEdit() {
     let text = document.getElementById('cadastrar').innerText;
     if (text == 'Cadastrar') { createProduct() }
     if (text == 'Editar') { EditProduct() }
 }
+
+// modificar o texto do botao para criar e limpar os values -> chama a função de mostrar em tela o form
 async function createVisibility() {
     let element = elements.find(x => x.name === 'add')
     element = element.doc;
@@ -135,6 +149,8 @@ async function createVisibility() {
 
     await toggleVisibility()
 }
+
+// modificar o texto do botao para editar e obtem os values do objeto clicado -> chama a função de mostrar em tela o form
 async function editVisibility(IPC) {
     let element = elements.find(x => x.name === 'add')
     element = element.doc;
@@ -160,6 +176,8 @@ async function editVisibility(IPC) {
 
     await toggleVisibility()
 }
+
+// mostra ou oculta o formulario de criação e edição de objetos
 async function toggleVisibility() {
     if (displaystatus) { displaystatus = false } else { displaystatus = true }
 
@@ -175,6 +193,8 @@ async function toggleVisibility() {
 
     console.debug(`Set -> [toggleVisibility: ${displaystatus}]`)
 }
+
+// atualiza as modificações dos produtos os reescrevendo em tela.
 async function displayProducts() {
     let element = elements.find(x => x.name === 'products')
     element = element.doc;
@@ -197,6 +217,8 @@ async function displayProducts() {
       `;
     }
 }
+
+// mostra as notificações usando o Notification
 async function notifyClient(Title, Message) {
     // verify if's not suported 
     if (!("Notification" in window)) {
